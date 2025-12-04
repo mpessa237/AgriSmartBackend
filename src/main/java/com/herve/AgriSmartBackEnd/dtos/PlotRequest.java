@@ -21,7 +21,5 @@ public class PlotRequest {
     @NotBlank(message = "CropType is mandatory")
     private String cropType;
 
-    @NotEmpty(message = "Id is mandatory")
-    @NotBlank(message = "Id is mandatory")
     private Integer id;
 }

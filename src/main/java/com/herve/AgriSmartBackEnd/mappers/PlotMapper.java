@@ -29,6 +29,9 @@ public class PlotMapper {
         plotResponse.setArea(plot.getArea());
         plotResponse.setSoilType(plot.getSoilType());
         plotResponse.setCropType(plot.getCropType());
+       // plotResponse.setUserId(plot.getUser().getId());  // ✅ Ajout de l'ID de l'utilisateur
+
+
 
         return plotResponse;
     }
