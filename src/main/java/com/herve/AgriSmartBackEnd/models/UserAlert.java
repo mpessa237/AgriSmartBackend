@@ -7,28 +7,32 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-
 @Getter
 @Setter
 @AllArgsConstructor
-@NoArgsConstructor
-@Table(name = "alerts")
+@Table(name = "user_alerts")
 @Entity
-public class Alert {
+public class UserAlert {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private AlertType alertType;
-    private AlertSeverity alertSeverity;
-    private String message;
-    private LocalDateTime dateAlert;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @OneToMany(mappedBy = "alert", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<UserAlert> userAlerts = new ArrayList<>();
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "alert_id", nullable = false)
+    private Alert alert;
+
+    @Column(nullable = false)
+    private Boolean isRead = false;
+
+
+    public UserAlert(){}
+
+    public UserAlert(User user, Alert alert) {
+        this.user = user;
+        this.alert = alert;
+    }
+
 }

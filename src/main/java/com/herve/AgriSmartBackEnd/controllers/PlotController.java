@@ -5,11 +5,9 @@ import com.herve.AgriSmartBackEnd.dtos.PlotResponse;
 import com.herve.AgriSmartBackEnd.mappers.PlotMapper;
 import com.herve.AgriSmartBackEnd.models.Plot;
 import com.herve.AgriSmartBackEnd.services.PlotService;
-import com.herve.AgriSmartBackEnd.users.User;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
